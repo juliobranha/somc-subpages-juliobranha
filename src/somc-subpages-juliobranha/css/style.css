@@ -1,0 +1,32 @@
+.widget_somc_subpages_widget {
+    overflow: auto;
+}
+
+.pages-tree ul {
+    list-style: none;
+}
+
+#widgets .pages-tree ul li {
+   white-space: nowrap;  
+}
+
+.pages-tree img.subpage_tn {
+    max-height:20px;
+    width: auto;
+}
+.pages-tree a.alpha_order, #widgets .pages-tree ul li a.alpha_order {
+    display: inline-block;
+    width: 13px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.pages-tree a.asc {
+    background-image: url(desc.gif); 
+
+}
+
+.pages-tree a.desc {
+    background-image: url(asc.gif);
+}
