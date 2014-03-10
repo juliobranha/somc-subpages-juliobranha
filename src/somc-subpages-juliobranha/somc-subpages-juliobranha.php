@@ -78,7 +78,7 @@ class Somc_Subpages_Widget extends WP_Widget {
                 
                 echo '<ul style = "display:block;" ><li>';
                 
-                echo'<a href = "#" class = "parent expanded" > C </a>';
+                echo'<a href = "#" class = "parent expanded" > &nbsp; </a>';
                         
                 if (has_post_thumbnail( $post->ID )) echo get_the_post_thumbnail( $post->ID, '', array('class' => "subpage_tn") ).'&nbsp;'; 
                 
@@ -92,9 +92,7 @@ class Somc_Subpages_Widget extends WP_Widget {
                     . esc_attr( $trunc_title ) . '</a>';
                 
                 echo ' <a href = "#" class = "alpha_order asc" /> &nbsp; </a>';
-                     
-                       
-                
+                        
 		$this->display_subpages($post->ID, true);
 		
                 echo '</li></ul></div>';
@@ -142,14 +140,12 @@ class Somc_Subpages_Widget extends WP_Widget {
                         $children = get_pages ( $args );
 		        
                         $has_children = !empty( $children );
-                        
-                       
-  
 
 			echo '<li>';
                         
-                        if ( $has_children ) echo'<a href = "#" class = "parent collapsed" > C </a>';
+                        if ( $has_children ) echo'<a href = "#" class = "parent collapsed" > &nbsp; </a>';
                         
+                        //featured image
                         if (has_post_thumbnail( $subpage->ID )) echo get_the_post_thumbnail( $subpage->ID, '', array('class' => "subpage_tn") ).'&nbsp;'; 
                         
                         //Get truncated title
@@ -207,6 +203,7 @@ class Somc_Subpages_Widget extends WP_Widget {
 	}	
 }
 
+//shortcode handler
 function shortcode_subpages () {
     
     $subpages = new Somc_Subpages_Widget;
@@ -220,9 +217,11 @@ function shortcode_subpages () {
 	
 }
 
+//adding shortcode
+
 add_shortcode( 'somc_subpages_juliobranha', 'shortcode_subpages' );
 
-// Enqueueing styles and scripts for jstree plugin
+// Enqueueing styles and scripts 
 
 function somc_styles(){
     wp_register_style('somc_stylesheet', plugins_url('css/style.css', __FILE__));  
@@ -238,4 +237,6 @@ function somc_scripts() {
 
 add_action('wp_enqueue_scripts', 'somc_scripts');  
 
+//removing an unwanted class from post_thumbnail 
+//TODO fix this issue with CSS instead
 remove_action( 'begin_fetch_post_thumbnail_html', '_wp_post_thumbnail_class_filter_add' );

@@ -1,4 +1,4 @@
-.widget_somc_subpages_widget {
+.pages-tree {
     overflow: auto;
 }
 
@@ -14,6 +14,11 @@
     max-height:20px;
     width: auto;
 }
+
+.pages-tree a.parent, .pages-tree a.alpha_order {
+    text-decoration: none;
+}
+
 .pages-tree a.alpha_order, #widgets .pages-tree ul li a.alpha_order {
     display: inline-block;
     width: 13px;
@@ -29,4 +34,21 @@
 
 .pages-tree a.desc {
     background-image: url(asc.gif);
+}
+
+.pages-tree a.parent, #widgets .pages-tree ul li a.parent {
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 100%;  
+    background-position: center;
+}
+
+.pages-tree a.collapsed {
+    background-image: url(plus.png); 
+
+}
+
+.pages-tree a.expanded {
+    background-image: url(minus.png);
 }
